@@ -16,9 +16,12 @@
     width: 100vw;
     background-color: black;
 }
-#name{
+#name {
     font-size: 3.5em;
 }
 ol{
     list-style: none;
+}
+#info{
+    text-align: center;
 }
