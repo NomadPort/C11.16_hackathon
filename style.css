@@ -1,0 +1,13 @@
+.avatar_img img{
+    width:200px;
+}
+.profile_body{
+    margin: 0 auto;
+    border: 1px solid purple;
+}
+.logo_header{
+    font-size:50px;
+    font-family: 'Poiret One', cursive;
+    color:purple;
+    margin: 0 auto;
+}
