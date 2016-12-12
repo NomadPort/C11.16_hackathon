@@ -25,3 +25,11 @@ ol{
 #info{
     text-align: center;
 }
+.display_pic{
+    height: 40vh;
+    width: 60vw;
+}
+#pic_display{
+    height: 40vh;
+
+}
