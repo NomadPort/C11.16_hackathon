@@ -1,5 +1,5 @@
-function get_channel(username){
-    // var youtube_username = dmtmusicchannel;
+function get_channel(){
+    var youtube_username = $("#youtube_clip").val();
     var channel_data;
     var upload_info;
 
@@ -7,7 +7,7 @@ function get_channel(username){
         url: "https://www.googleapis.com/youtube/v3/channels",
         data: {
             part:"contentDetails",
-            forUsername: "dmtmusicchannel",
+            forUsername: youtube_username,
             key: "AIzaSyDMYs0eOSofGXXJC817X5BZMHm4PIhezOY",
             format:"json"
         },
@@ -39,12 +39,11 @@ function get_video(video_address){
                 var new_object = {};
                 new_object.description = playlist_data.items[i].snippet.description;
                 new_object.title = playlist_data.items[i].snippet.title;
-                new_object.thumbnail = playlist_data.items[i].snippet.thumbnails.default.url;
+                new_object.thumbnail = $("<img>").attr("src", playlist_data.items[i].snippet.thumbnails.default.url);
                 new_object.video_id = playlist_data.items[i].snippet.resourceId.videoId;
-                videos_array.push(new_object)
+                videos_array.push(new_object);
+                $(".video_display").append(videos_array[i].title, videos_array[i].thumbnail);
             }
-
-            console.log(videos_array
-            )
     })
 }
+
