@@ -1,3 +1,4 @@
+
 function get_channel(username){
     // var youtube_username = dmtmusicchannel;
     var channel_data;
@@ -48,3 +49,12 @@ function get_video(video_address){
             )
     })
 }
+
+function expand(){
+    if($('#info').is(':hidden')) {
+        $('#info').show()
+    }else{
+        $('#info').hide()
+    }
+console.log('ive been clicked!')
+};
