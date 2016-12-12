@@ -11,3 +11,11 @@
     color:purple;
     margin: 0 auto;
 }
+#display_header{
+    height: 10vh;
+    width: 100vw;
+    background-color: black;
+}
+#name{
+    font-size: 3.5em;
+}
