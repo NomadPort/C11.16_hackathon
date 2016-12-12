@@ -19,3 +19,6 @@
 #name{
     font-size: 3.5em;
 }
+ol{
+    list-style: none;
+}
