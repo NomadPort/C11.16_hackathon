@@ -4,17 +4,16 @@
     <title>Display Page</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script rel="script" type="text/javascript" src="script.js"></script>
+    <script rel="script" type="text/javascript" src="display-script.js"></script>
     <link href="style.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
     <header id="display_header">
         <ul>
-        <li class="nav nav-tabs col-md-1 col-md-offset-2 btn btn-defualt btn-lg active head_button" id="home">Home</li>
-        <li class="nav nav-tabs col-md-1 col-md-offset-1 btn btn-defualt btn-lg head_button" id="messages">Messages</li>
-        <li class="nav nav-tabs col-md-1 col-md-offset-1 btn btn-defualt btn-lg head_button" id="profile">Profile</li>
-        <li class="nav nav-tabs col-md-1 col-md-offset-1 btn btn-defualt btn-lg head_button" id="log">Log in/out</li>
+            <a href="display.html"><li class="nav nav-tabs col-md-2 col-md-offset-2 btn btn-defualt btn-lg head_button" id="home">Home</li></a>
+            <a href="map.html"><li class="nav nav-tabs col-md-2 col-md-offset-1 btn btn-defualt btn-lg head_button" id="messages">Map</li></a>
+            <a href="profile.html"><li class="nav nav-tabs col-md-2 col-md-offset-1 btn btn-defualt btn-lg head_button" id="profile">Profile</li></a>
         </ul>
     </header>
     <div id="display">
@@ -26,7 +25,7 @@
                 <li data-target="#carousel" data-slide-to="3"></li>
             </ol>
             <div id="pic_display" class="carousel-inner" role="listbox" >
-                <div class="item active" data-toggle="modal" data-target="#jason">
+                <div class="item" data-toggle="modal" data-target="#jason">
                     <div class="name_display">
                         <h1 class="col-md-2 col-md-offset-5 name">Jason Welch</h1>
                     </div>
@@ -44,10 +43,12 @@
                     </div>
                     <img class="col-lg-2 col-md-offset-5 display_pic" src="https://www.wpsymposiumpro.com/wp-content/uploads/2014/04/iStock_000033523696Small.jpg">
                 </div>
-                <div class="item">
+                <div class="item active" data-toggle="modal" data-target="#ryan">
+                    <div class="name_display">
+                        <h1 class="col-md-2 col-md-offset-5 name">Ryan Moy</h1>
+                    </div>
                     <img class="col-lg-2 col-md-offset-5 display_pic" src="https://www.wpsymposiumpro.com/wp-content/uploads/2014/04/iStock_000033523696Small.jpg">
                 </div>
-            </div>
             <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -73,13 +74,13 @@
                 </div>
                 <div class="modal-body">
                     <div class="info">
-                        <h4>Name - </h4><p>Jason D. Welch</p>
+                        <h4>Name - </h4><p>Jason Juicebox Welch</p>
                         <h4>Location - </h4><p>Yobro Linda (the dirty YL), CA</p>
                         <h4>Age -</h4><p>22</p>
                         <h4>About Me</h4>
-                        <p>I am not incredibly musicaly talented, although I do have experience playing piano, acustic guitar, drum set, zilaphone, and singing. I lack most skills required to be considered a "good" musician, but what are you going to do? Judge me? </p>
+                        <p>I am not incredibly musically talented, although I do have experience playing piano, acoustic guitar, drum set, xylophone, and singing. I lack most skills required to be considered a "good" musician, but what are you going to do? Judge me? </p>
                         <h4>Looking For -</h4> Bands
-                        <h4>My Skills</h4><p>So many skils!</p>
+                        <h4>My Skills</h4><p>So many skills!</p>
                         <h4>Gear -</h4><p> All of the Gear!</p>
                         <iframe width="560" height="400" src="https://www.youtube.com/embed/3BHyfYiBt5o" frameborder="0" allowfullscreen></iframe>
                     </div>
@@ -133,5 +134,35 @@
             </div>
         </div>
     </div>
+
+        <div class="modal" id="ryan" tabindex="1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="ryans_modal">Ryan Moy</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="info">
+                            <h4>Name - </h4><p>That New Guy</p>
+                            <h4>Location - </h4><p>Huntington, CA</p>
+                            <h4>Age -</h4><p>26</p>
+                            <h4>About Me</h4>
+                            <p>You Know!</p>
+                            <h4>Looking For -</h4><p>Macho Man Randy Savage</p>
+                            <h4>My Skills</h4><p>im pretty great i promise.</p>
+                            <h4>Gear -</h4><p>I thiink i have some helical gears lying around somewhere.</p>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Dd7FixvoKBw" frameborder="0" allowfullscreen></iframe>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+           <button type="button" id="remove" class="col-md-offset-6 btn btn-danger btn-lg" onclick="remove_profile()">X</button>
+        </div>
+  </div>
 </body>
 </html>
