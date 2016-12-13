@@ -1,8 +1,9 @@
-// // $(document).ready(function() {
-//
-//     var profilesString = localStorage.getItem("profiles");
-//     var profiles = JSON.parse(profilesString);
-//
+
+$(document).ready(function() {
+
+    var profilesString = localStorage.getItem("profiles");
+    var profiles = JSON.parse(profilesString);
+});
 //     // for(var i = 0; i < profiles.length; i++) {
 //     //     create_modal(profiles[i])
 //     // }
@@ -37,7 +38,6 @@
 //            );
 //     }
 //
-// // });
 function expand(){
     if($('#info').is(':hidden')) {
         $('#info').show()
@@ -48,4 +48,7 @@ function expand(){
 }
 function remove_profile(){
     $('.active').hide();
+}
+function slider(){
+    $('.item').carousel('pause');
 }
