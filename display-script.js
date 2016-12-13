@@ -15,6 +15,7 @@ $(document).ready(function() {
         newModal.children(".location_input").html(profile.location);
         newModal.children(".description_input").html(profile.description);
         $("body").append(newModal);
+        slider();
     }
 });
 function expand(){
@@ -27,4 +28,7 @@ function expand(){
 }
 function remove_profile(){
     $('.active').hide();
+}
+function slider(){
+    $('.item').carousel('pause');
 }

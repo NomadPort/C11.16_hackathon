@@ -8,7 +8,7 @@
     <link href="style.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
-<body>
+<body id="body">
     <header id="display_header">
         <ul>
             <a href="display.html"><li class="nav nav-tabs col-md-2 col-md-offset-2 btn btn-defualt btn-lg head_button" id="home">Home</li></a>
@@ -25,13 +25,13 @@
                 <li data-target="#carousel" data-slide-to="3"></li>
             </ol>
             <div id="pic_display" class="carousel-inner" role="listbox" >
-                <div class="item" data-toggle="modal" data-target="#jason">
+                <div class="item carousel('pause')" data-toggle="modal" data-target="#jason">
                     <div class="name_display">
                         <h1 class="col-md-2 col-md-offset-5 name">Jason Welch</h1>
                     </div>
                     <img class="col-lg-2 col-md-offset-5 display_pic" src="https://www.wpsymposiumpro.com/wp-content/uploads/2014/04/iStock_000033523696Small.jpg">
                 </div>
-                <div class="item" data-toggle="modal" data-target="#seany-d">
+                <div class="item carousel('pause')" data-toggle="modal" data-target="#seany-d">
                     <div class="name_display">
                         <h1 class="col-md-2 col-md-offset-5 name">Seany-D</h1>
                     </div>
@@ -134,7 +134,6 @@
             </div>
         </div>
     </div>
-
         <div class="modal" id="ryan" tabindex="1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -159,10 +158,7 @@
                 </div>
             </div>
         </div>
-
-        <div>
            <button type="button" id="remove" class="col-md-offset-6 btn btn-danger btn-lg" onclick="remove_profile()">X</button>
-        </div>
   </div>
 </body>
 </html>
