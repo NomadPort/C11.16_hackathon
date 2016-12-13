@@ -16,7 +16,7 @@
     width: 100vw;
     background-color: black;
 }
-#name {
+.name{
     font-size: 3.5em;
 }
 ol{
@@ -40,5 +40,8 @@ ol{
     color:red;
 }
 .video_title label {
-    padding-right:20px
+    padding-right: 20px
+}
+.modal-title{
+    text-align: center;
 }
