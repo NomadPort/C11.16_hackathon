@@ -2,39 +2,80 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Map page</title>
+    <title>Map page</title><meta name="viewport" content="initial-scale=1.0">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+
+            background-color: dimgrey;
+        }
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            height: 75vh;
+            width: 80vw;
+        }
+        .container {
+            margin-right: 0;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding-top: 0;
+        }
+        ul {
+            margin-top: 0;
+            margin-left: 5%;
+        }
+        #display_header {
+            height: 10%;
+            width: 100%;
+
+            margin-bottom: 2%;
+            background-color: black;
+        }
+    </style>
+
 </head>
 <body>
+<header id="display_header">
+    <ul>
+        <li class="nav nav-tabs col-md-1 col-md-offset-2 btn btn-defualt btn-lg active head_button" id="home">Home</li>
+        <li class="nav nav-tabs col-md-1 col-md-offset-1 btn btn-defualt btn-lg head_button" id="messages">Messages</li>
+        <li class="nav nav-tabs col-md-1 col-md-offset-1 btn btn-defualt btn-lg head_button" id="profile">Profile</li>
+        <li class="nav nav-tabs col-md-1 col-md-offset-1 btn btn-defualt btn-lg head_button" id="log">Log in/out</li>
+    </ul>
+</header>
 <div class="container">
-    <div class="user-add-form  col-md-12 col-md-push-3">
-        <h4></h4>
-        <div class="form-group input-group col-md-3 col-md-push-2">
-            <span class="input-group-addon">
-                <span class="glyphicon glyphicon-user"></span>
-            </span>
-            <input type="text" class="form-control" name="user_name" id="user_name" placeholder="User Name">
-        </div>
-        <div class="form-group input-group col-md-3 col-md-push-2">
-            <span class="input-group-addon">
-                <span class="glyphicon glyphicon-asterisk"></span>
-            </span>
-            <input type="text" class="form-control" name="pass_word" id="pass_word"
-                   placeholder="Password">
-        </div>
+    <div class="user-add-form  col-md-12 col-md-push-2">
         <div class="form-group input-group col-md-7 ">
             <span class="input-group-addon">
                 <span class="glyphicon glyphicon-map-marker"></span>
             </span>
             <input type="text" class="form-control" name="search" id="search"
-                   placeholder="Search">
+                   placeholder="Search...">
             <span class="input-group-btn">
-            <button type="button" class="btn btn-success" onclick="">Search</button>
+            <button type="button" class="btn btn-primary" onclick="">Search</button>
                 </span>
         </div>
     </div>
 </div>
+<div id="map" class="col-md-12 col-md-push-1"></div>
+<script>
+    var map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 34.0522, lng: -118.2437},
+            zoom: 8
+        });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrosL2tMYU7fPDjaZ4oWS1r2cbcLE3RLg&callback=initMap"
+        async defer></script>
 </body>
 </html>
