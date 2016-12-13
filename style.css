@@ -16,7 +16,7 @@
     width: 100vw;
     background-color: black;
 }
-#name {
+.name{
     font-size: 3.5em;
 }
 ol{
@@ -34,4 +34,7 @@ ol{
 }
 #pic_display{
     height: 40vh;
+}
+.modal-title{
+    text-align: center;
 }
