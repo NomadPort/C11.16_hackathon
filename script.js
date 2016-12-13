@@ -47,4 +47,11 @@ function get_video(video_address){
             }
     })
 }
-
+function expand(){
+    if($('#info').is(':hidden')) {
+        $('#info').show()
+    }else{
+        $('#info').hide()
+    }
+console.log('ive been clicked!')
+}
