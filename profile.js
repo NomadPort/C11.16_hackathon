@@ -26,7 +26,7 @@ function get_video(video_address){
     $.ajax({
         url:"https://www.googleapis.com/youtube/v3/playlistItems",
         data: {
-           part: "snippet",
+            part: "snippet",
             playlistId: play_list_id,
             key: "AIzaSyDMYs0eOSofGXXJC817X5BZMHm4PIhezOY"
         },
@@ -36,7 +36,6 @@ function get_video(video_address){
             playlist_data = msg;
             var song_array = playlist_data.items;
             var videos_array = [];
-
             for(var i = 0; i < song_array.length; i++) {
                 var new_object = {};
                 new_object.description = playlist_data.items[i].snippet.description;
@@ -51,17 +50,8 @@ function get_video(video_address){
                 videos_array.push(new_object);
                 $(".video_display").append(videos_array[i].title, videos_array[i].video_id)
             }
-    })
+        })
 }
-function expand(){
-    if($('#info').is(':hidden')) {
-        $('#info').show()
-    }else{
-        $('#info').hide()
-    }
-console.log('ive been clicked!')
-}
-
 function clear_youtube_form(){
     $("#youtube_clip").val("");
     $(".video_display").html("");
@@ -78,9 +68,37 @@ function upload_video() {
                     .attr("height", 305)
                     .attr("src", "https://www.youtube.com/embed/" + checkboxes[i].value)
                     .attr("frameborder", 0)
+                    .data("video_id",checkboxes[i].value)
                     .addClass("col-md-12")
             );
         }
     }
 }
+//creates form objects to insert dynamically onto display page
+function create_form_objects(){
+    var profile_object = {};
+    profile_object.name = $("#name_input").val();
+    profile_object.location = $("#location_input").val();
+    profile_object.age = $("#age_input").val();
+    profile_object.description = $("#description_input").val();
+    profile_object.interest = $("#interest_input").val();
+    profile_object.skills = [];
+    $(".skill_checkbox input:checkbox:checked").each(function(){
+        profile_object.skills.push($(this).val());
+    });
+    profile_object.equipment = $("#equipment_input").val();
+    profile_object.youtube = [];
+    $(".youtube_clip_area iframe").each(function(){
+        profile_object.youtube.push($(this).data("video_id"))
+    })
+    // localStorage.setItem("profiles", "[]");
+    var profilesString = localStorage.getItem("profiles");
+    if (profilesString === null) {
+        profilesString = "[]";
+    }
+    var profiles = JSON.parse(profilesString);
+    profiles.push(profile_object);
+    var newProfilesString = JSON.stringify(profiles);
+    localStorage.setItem("profiles", newProfilesString);
 
+}

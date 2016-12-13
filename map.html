@@ -108,7 +108,7 @@ function grab_profile_data() {
 
         var infoWindow = new google.maps.InfoWindow({map: map});
 
-        // if browser geolocation.
+        // if browser does supports geolocation
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
                 var pos = {
@@ -150,7 +150,8 @@ function grab_profile_data() {
                     method: 'get',
                     success: function (response) {
                         console.log('success ', response.results[0].geometry.location);
-                        initMap(response.results[0].geometry.location,profile);
+                        var findLocation = response.results[0].geometry.location,profile;
+                        initMap(findLocation);
                     },
                     error: function (response) {
                         console.log('error ', response);
