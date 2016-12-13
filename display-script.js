@@ -14,6 +14,7 @@ $(document).ready(function() {
         newModal.children(".age_input").html(profile.age);
         newModal.children(".location_input").html(profile.location);
         newModal.children(".description_input").html(profile.description);
+        newModal.css("visibility", "visible");
         $("body").append(newModal);
     }
 });
