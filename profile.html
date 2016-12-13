@@ -5,7 +5,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="script.js"></script>
+    <script src="profile.js"></script>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
 </head>
@@ -65,21 +65,21 @@
     <div class="form-group row">
         <div class="col-md-12">
             <label>My skills</label>
-            <div class="checkbox" type="text" id="skill_set_input" placeholder="i.e Guitar, Bass, Vocals">
-                <label><input type="checkbox">Vocals</label>
-                <label><input type="checkbox">Guitar</label>
-                <label><input type="checkbox">Bass</label>
-                <label><input type="checkbox">Drums</label>
-                <label><input type="checkbox">DJ</label>
-                <label><input type="checkbox">Keyboard/Piano</label>
-                <label><input type="checkbox">Composing</label>
-                <label><input type="checkbox">Violin/Viola</label>
-                <label><input type="checkbox">Cello</label>
-                <label><input type="checkbox">Clarinet</label>
-                <label><input type="checkbox">Flute</label>
-                <label><input type="checkbox">Harp</label>
-                <label><input type="checkbox">Bassoon</label>
-                <label><input type="checkbox">Saxophone</label>
+            <div class="checkbox skill_checkbox" type="text" id="skill_set_input" placeholder="i.e Guitar, Bass, Vocals">
+                <label><input type="checkbox" value="Vocals">Vocals</label>
+                <label><input type="checkbox" value="Guitar">Guitar</label>
+                <label><input type="checkbox" value="Bass">Bass</label>
+                <label><input type="checkbox" value="Drums">Drums</label>
+                <label><input type="checkbox" value="DJ">DJ</label>
+                <label><input type="checkbox" value="Keyboard">Keyboard/Piano</label>
+                <label><input type="checkbox" value="Composing">Composing</label>
+                <label><input type="checkbox" value="Violin">Violin/Viola</label>
+                <label><input type="checkbox" value="Cello">Cello</label>
+                <label><input type="checkbox" value="Clarinet">Clarinet</label>
+                <label><input type="checkbox" value="Flute">Flute</label>
+                <label><input type="checkbox" value="Harp">Harp</label>
+                <label><input type="checkbox" value="Bassoon">Bassoon</label>
+                <label><input type="checkbox" value="Saxophone">Saxophone</label>
             </div>
         </div>
     </div>
@@ -135,7 +135,7 @@
     </div>
     <div class="form-group row">
         <div class="col=md-12">
-            <button type="submit" class="btn btn-success col-md-3 col-md-offset-3">Create Profile!</button>
+            <button type="submit" class="btn btn-success col-md-3 col-md-offset-3" onclick="create_form_objects()" >Create Profile!</button>
             <button type="submit" class="btn btn-default col-md-3">Nevermind</button>
         </div>
     </div>

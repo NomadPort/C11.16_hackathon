@@ -26,7 +26,7 @@ function get_video(video_address){
     $.ajax({
         url:"https://www.googleapis.com/youtube/v3/playlistItems",
         data: {
-           part: "snippet",
+            part: "snippet",
             playlistId: play_list_id,
             key: "AIzaSyDMYs0eOSofGXXJC817X5BZMHm4PIhezOY"
         },
@@ -50,7 +50,7 @@ function get_video(video_address){
                 videos_array.push(new_object);
                 $(".video_display").append(videos_array[i].title, videos_array[i].video_id)
             }
-    })
+        })
 }
 function clear_youtube_form(){
     $("#youtube_clip").val("");
@@ -93,6 +93,9 @@ function create_form_objects(){
     })
     // localStorage.setItem("profiles", "[]");
     var profilesString = localStorage.getItem("profiles");
+    if (profilesString === null) {
+        profilesString = "[]";
+    }
     var profiles = JSON.parse(profilesString);
     profiles.push(profile_object);
     var newProfilesString = JSON.stringify(profiles);
