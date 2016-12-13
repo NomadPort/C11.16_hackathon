@@ -3,38 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <title>Map page</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <script rel="script" type="text/javascript" src="script.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+    <style>
+        body {
+
+            background-color: dimgrey;
+        }
+
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            height: 75vh;
+            width: 80vw;
+        }
+
+        .container {
+            margin-right: 0;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding-top: 0;
+        }
+
+        ul {
+            margin-top: 0;
+            margin-left: 5%;
+        }
+
+        #display_header {
+            height: 10%;
+            width: 100%;
+
+            margin-bottom: 1%;
+            background-color: black;
+        }
+    </style>
+
 </head>
 <body>
-    <div class="container">
-        <div class="user-add-form  col-md-12 col-md-push-3">
-            <h4></h4>
-            <div class="form-group input-group col-md-3 col-md-push-2">
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-user"></span>
+
+<header id="display_header">
+    <ul>
+        <li class="nav nav-tabs col-md-1 col-md-offset-2 btn btn-defualt btn-lg active head_button" id="home">Home</li>
+        <li class="nav nav-tabs col-md-1 col-md-offset-1 btn btn-defualt btn-lg head_button" id="messages">Messages</li>
+        <li class="nav nav-tabs col-md-1 col-md-offset-1 btn btn-defualt btn-lg head_button" id="profile">Profile</li>
+        <li class="nav nav-tabs col-md-1 col-md-offset-1 btn btn-defualt btn-lg head_button" id="log">Log in/out</li>
+    </ul>
+</header>
+<div class="container">
+    <div class="user-add-form  col-md-12 col-md-push-2">
+        <div class="form-group input-group col-md-7 ">
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-search"></span>
+            </span>
+            <input type="text" class="form-control" name="search" id="search"
+                   placeholder="Search...">
+            <span class="input-group-btn">
+            <button type="button" class="btn btn-primary user_zip_input" onclick="locationRequestZip();">Search</button>
                 </span>
-                <input type="text" class="form-control" name="user_name" id="user_name" placeholder="User Name">
-            </div>
-            <div class="form-group input-group col-md-3 col-md-push-2">
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-asterisk"></span>
-                </span>
-                <input type="text" class="form-control" name="pass_word" id="pass_word"
-                   placeholder="Password">
-            </div>
-            <div class="form-group input-group col-md-7 ">
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-map-marker"></span>
-                </span>
-                <input type="text" class="form-control" name="search" id="search"
-                    placeholder="Search">
-                <span class="input-group-btn">
-                <button type="button" class="btn btn-success" onclick="">Search</button>
-                    </span>
-            </div>
         </div>
     </div>
+</div>
+<div id="map" class="col-md-12 col-md-push-1"></div>
+<script>
+    var map;
+
+function grab_profile_data() {
+
+    return [
+        {name: 'Danh', lat: 34.1, lng: -118.2, instrument: 'sings', youtube: ''},
+        {name: 'Sean', lat: 34.2, lng: -118.1, instrument: 'guitar'},
+        {name: 'Tammy', lat: 34.3, lng: -118.3},
+        {name: 'Jason', lat: 34.4, lng: -118.4},
+        {name: 'Ryan', lat: 34.5, lng: -118.5}
+    ];
+}
+
+    var locations = grab_profile_data();
+
+    function initMap() {
+            console.log("init map");
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 34.0522, lng: -118.2437},
+            zoom: 9
+        });
+
+        var markers = locations.map(function(location, i) {
+            console.log("HI");
+            return new google.maps.Marker({
+                position: location,
+                map: map,
+                label: location.name
+            });
+        });
+
+        var infoWindow = new google.maps.InfoWindow({map: map});
+
+        // if browser geolocation.
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('My Location');
+                map.setCenter(pos);
+            }, function () {
+                handleLocationError(true, infoWindow, map.getCenter());
+            });
+        } else {
+            // else browser doesn't support geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
+    }
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+    }
+
+    function locationRequestZip() {
+        console.log('locationRequest');
+        var userInput = $('#search').val();
+        console.log(userInput);
+        if (userInput === '') {
+            console.log('locationRequest: empty zip code');
+            return;
+        }
+
+        $.ajax({
+                    url: 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDMYs0eOSofGXXJC817X5BZMHm4PIhezOY&address=' + userInput,
+                    dataType: 'json',
+                    method: 'get',
+                    success: function (response) {
+                        console.log('success ', response.results[0].geometry.location);
+                        initMap(response.results[0].geometry.location,profile);
+                    },
+                    error: function (response) {
+                        console.log('error ', response);
+                    }
+                }
+        )
+    }
+    $(document).ready(function () {
+
+    });
+
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrosL2tMYU7fPDjaZ4oWS1r2cbcLE3RLg&callback=initMap"
+        async defer></script>
+
 </body>
 </html>
