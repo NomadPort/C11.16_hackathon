@@ -25,3 +25,6 @@ function expand(){
     }
     console.log('ive been clicked!')
 }
+function remove_profile(){
+    $('.active').hide();
+}
