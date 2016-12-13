@@ -103,7 +103,14 @@
                             <h4 class = modal-title">Choose a Youtube Clip</h4>
                         </div>
                         <div class="modal-body">
-                            <p>Hello</p>
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <label>Search by Youtube Username: </label>
+                                    <input class="form-control" type="search" id="youtube_clip" placeholder="username">
+                                    <button type="button" class="btn btn-success" onclick="get_channel()">Search</button>
+                                    <p class="video_display"></p>
+                                </div>
+                            </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
