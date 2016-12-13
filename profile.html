@@ -91,7 +91,7 @@
     </div>
     <div class="form-group row">
         <div class="col-md-12">
-            <label>Youtube Clip</label>
+            <label>Choose a video from Youtube</label>
             <button type="submit" class="btn btn-primary btn-lg col-md-12" data-toggle="modal" data-target="#myModal">Select Youtube Clip</button>
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -105,20 +105,26 @@
                         <div class="modal-body">
                             <form class="form-inline">
                                 <div class="form-group">
-                                    <label>Search by Youtube Username: </label>
+                                    <label>Search by Youtube Channel: </label>
                                     <input class="form-control" type="search" id="youtube_clip" placeholder="username">
                                     <button type="button" class="btn btn-success" onclick="get_channel()">Search</button>
+                                    <button type="button" class="btn btn-default" onclick="clear_youtube_form()">Redo Search</button>
                                     <p class="video_display"></p>
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Upload Video</button>
+                            <button type="button" class="btn btn-primary" onclick="upload_video()">Upload Video</button>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12 youtube_clip_area">
+            <label>Youtube Clips: </label>
         </div>
     </div>
     <div class="form-group row">
