@@ -22,6 +22,9 @@
 ol{
     list-style: none;
 }
+.video_display {
+    margin: 20px auto;
+}
 #info{
     text-align: center;
 }
@@ -31,5 +34,4 @@ ol{
 }
 #pic_display{
     height: 40vh;
-
 }
