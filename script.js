@@ -61,6 +61,7 @@ function expand(){
     }
 console.log('ive been clicked!')
 }
+
 function clear_youtube_form(){
     $("#youtube_clip").val("");
     $(".video_display").html("");
@@ -82,3 +83,4 @@ function upload_video() {
         }
     }
 }
+
