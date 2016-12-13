@@ -74,7 +74,7 @@ function upload_video() {
         }
     }
 }
-
+//creates form objects to insert dynamically onto display page
 function create_form_objects(){
     var profile_object = {};
     profile_object.name = $("#name_input").val();
