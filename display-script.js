@@ -3,29 +3,44 @@ $(document).ready(function() {
 
     var profilesString = localStorage.getItem("profiles");
     var profiles = JSON.parse(profilesString);
-    // function create_modal(profile) {
-    //     var newModal = $('#modal-placeholder').clone();
-    //     var newId = profile.name.split(" ").join("-").toLowerCase();
-    //     newModal.attr("id", newId);
-    //     newModal.children(".modal-title").html(profile.name);
-    //     newModal.children(".name_input").html(profile.name);
-    //     newModal.children(".age_input").html(profile.age);
-    //     newModal.children(".location_input").html(profile.location);
-    //     newModal.children(".description_input").html(profile.description);
-    //     newModal.css("visibility", "visible");
-    //     $("body").append(newModal);
-    //     console.log(newModal)
+
+
+    // for(var i = 0; i < profiles.length; i++) {
+    //     create_modal(profiles[i])
     // }
-    // function create_display_v2(profile) {
-    //     var newDisplayItem = $('#item-placeholder').clone();
-    //     newDisplayItem.children('.name_display h1').html(profile.name);
-    //     //target for the id
-    //     var newId = profile.name.split(" ").join("-").toLowerCase();
-    //     newDisplayItem.data("target", "#"+newId);
-    //     newDisplayItem.show();
-    //     $(".carousel-inner").append(newDisplayItem);
-    // }
+    create_modal(profiles[0]);
+    create_carousel(profiles[0]);
+
+
 });
+
+
+    function create_carousel(current){
+        var newCaro = $('.item.jason').clone(true).removeClass().addClass("item " + current.name);
+        newCaro.removeAttr("data-target")
+        newCaro.attr("data-target", "#"+current.name)
+        console.log(newCaro.data().target);
+        $('.item').after(newCaro);
+        var duplicate = $("." +current.name+ " .name");
+        duplicate[0].innerHTML = current.name;
+    }
+    function create_modal(current) {
+        var name = current.name
+        var newModal = $('#jason.modal').clone(true).addClass(name).removeAttr("id").attr("id", current.name);
+        $('#jason.modal').after(newModal);
+        $("." +name +" .modal-title")[0].innerHTML = current.name;
+        $("." +name +" #name")[0].innerHTML = current.name;
+        $("." +name +" #location")[0].innerHTML = current.location;
+        $("." +name +" #age")[0].innerHTML = current.age;
+        $("." +name +" #about")[0].innerHTML = current.about;
+        $("." +name +" #skills")[0].innerHTML = current.skills;
+        $("." +name +" #gear")[0].innerHTML = current.gear;
+        $("." +name +" #looking")[0].innerHTML = current.interest;
+        $("." +name +" iframe").removeAttr("src");
+        $("." +name +" iframe").attr("src", current.youtube[0])
+        console.log($("." +name +" iframe")[0].src)
+        
+    }
 
 function expand(){
     if($('#info').is(':hidden')) {
