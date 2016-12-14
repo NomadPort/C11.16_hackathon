@@ -4,6 +4,7 @@ $(document).ready(function() {
     var profilesString = localStorage.getItem("profiles");
     var profiles = JSON.parse(profilesString);
 
+
     // for(var i = 0; i < profiles.length; i++) {
     //     create_modal(profiles[i])
     // }
@@ -40,6 +41,7 @@ $(document).ready(function() {
         console.log($("." +name +" iframe")[0].src)
         
     }
+
 function expand(){
     if($('#info').is(':hidden')) {
         $('#info').show()
@@ -50,4 +52,10 @@ function expand(){
 }
 function remove_profile(){
     $('.active').hide();
+}
+function slider(){
+    $('.carousel').carousel({
+        interval: 6000,
+        interval: false
+    })
 }
