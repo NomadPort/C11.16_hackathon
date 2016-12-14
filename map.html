@@ -9,22 +9,16 @@
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans+Condensed:300" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
-
     <style>
         body {
-
             background-color: dimgrey;
         }
-
         /* Always set the map height explicitly to define the size of the div
          * element that contains the map. */
         #map {
             height: 75vh;
             width: 80vw;
-
         }
-
         body{
             background-image: url("http://wallpapercave.com/wp/OF7FY9K.jpg");
             background-size: cover;
@@ -37,13 +31,11 @@
             margin: 0;
             padding-top: 0;
         }
-
         ul {
             margin-top: 0;
             margin-left: 5%;
             font-family: 'Josefin Sans', sans-serif;;
         }
-
         #display_header{
             height: 10vh;
             width: 100vw;
@@ -68,7 +60,6 @@
             margin: 0 auto;
         }
     </style>
-
 </head>
 <body>
 <header id="display_header">
@@ -78,7 +69,7 @@
         <a href="profile.html"><li class="nav nav-tabs col-md-2 col-md-offset-1 btn btn-defualt btn-lg head_button" id="profile">Profile</li></a>
     </ul>
 </header>
-//search bar
+<!--//search bar-->
 <div class="container">
     <div class="user-add-form  col-md-12 col-md-push-2">
         <div class="form-group input-group col-md-7 ">
@@ -88,108 +79,108 @@
             <input type="text" class="form-control" name="search" id="search"
                    placeholder="Search...">
             <span class="input-group-btn">
-            <button type="button" class="btn btn-primary user_zip_input" onclick="locationRequestZip();">Search</button>
+            <button type="button" class="btn btn-primary user_zip_input" onclick="locationRequestZip()">Search</button>
                 </span>
         </div>
     </div>
 </div>
 <div id="map" class="col-md-12 col-md-push-1 col-xs-12 col-xs-push-1"></div>
-//Map display
-<script>
-    var map;
-//harcoded profile longitude and latitude
-function grab_profile_data() {
-
-    return [
-        {name: 'Danh', lat: 33.7739, lng: -117.9414, instrument: 'sings', youtube: ''},
-        {name: 'Sean', lat: 33.8208385, lng: -117.954648, instrument: 'guitar'},
-        {name: 'Tammy', lat: 33.7878, lng: -117.8531},
-        {name: 'Jason', lat: 33.8886, lng: -117.8131},
-        {name: 'Ryan', lat: 33.6603, lng: -117.9992}
-    ];
-}
-
-    var locations = grab_profile_data();
-//    var locations = create_form_objects();
-//gives start location of a certain area upon load
-    function initMap() {
-            console.log("init map");
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 33.7456, lng: -117.8678},
-            zoom: 10
-        });
-//sets markers on location for hardcoded data
-        var markers = locations.map(function(location, i) {
-            console.log("HI");
-            return new google.maps.Marker({
-                animation: google.maps.Animation.DROP,
-                position: location,
-                map: map,
-                label: location.name
-
-            });
-        });
-//sets user's current location
-        var infoWindow = new google.maps.InfoWindow({map: map});
-
-        // if browser does support geolocation
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                var pos = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
-
-                infoWindow.setPosition(pos);
-                infoWindow.setContent('Me');
-                map.setCenter(pos);
-            }, function () {
-                handleLocationError(true, infoWindow, map.getCenter());
-            });
-        } else {
-            // else browser doesn't support geolocation
-            handleLocationError(false, infoWindow, map.getCenter());
-        }
-
-    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                'Error: The Geolocation service failed.' :
-                'Error: Your browser doesn\'t support geolocation.');
-    }
-//handles when user inputs a location of any kind
-    function locationRequestZip() {
-        console.log('locationRequest');
-        var userInput = $('#search').val();
-        console.log(userInput);
-        if (userInput === '') {
-            console.log('locationRequest: empty zip code');
-            return;
-        }
-        $.ajax({
-                    url: 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDMYs0eOSofGXXJC817X5BZMHm4PIhezOY&address=' + userInput,
-                    dataType: 'json',
-                    method: 'get',
-                    success: function (response) {
-                        var findLocation = response.results[0].geometry.location;
-                        console.log('success ', findLocation);
-                        initMap(findLocation);
-                    },
-                    error: function (response) {
-                        console.log('error ', response);
-                    }
-                }
-        )
-    }
-    console.log(localStorage);
-    $(document).ready(function () {
-
-    });
-
-
-</script>
+<!--//map display-->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrosL2tMYU7fPDjaZ4oWS1r2cbcLE3RLg&callback=initMap"
         async defer></script>
+<script>
+        var map, infoWindow;
+        //harcoded profile longitude and latitude
+        function grab_profile_data() {
+            return [
+                {name: 'Danh', lat: 33.7739, lng: -117.9414, instrument: 'sings', youtube: ''},
+                {name: 'Sean', lat: 33.8208385, lng: -117.954648, instrument: 'guitar'},
+                {name: 'Tammy', lat: 33.7878, lng: -117.8531},
+                {name: 'Jason', lat: 33.8886, lng: -117.8131},
+                {name: 'Ryan', lat: 33.6603, lng: -117.9992}
+            ];
+        }
+        //    var locations = create_form_objects();
+        //gives start location of a certain area upon load
+        function initMap() {
+            console.log("init map");
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 33.7456, lng: -117.8678},
+                zoom: 12
+            });
+            var locations = grab_profile_data();
+            //sets markers on location for hardcoded data
+            var markers = locations.map(function (location, i) {
+                console.log("HI");
+                return new google.maps.Marker({
+                    animation: google.maps.Animation.DROP,
+                    position: location,
+                    map: map,
+                    label: location.name
 
+                });
+            });
+            // if browser does support geolocation
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    if (!infoWindow) {
+                        //create info window, if it hasnt been created yet
+                        infoWindow = new google.maps.InfoWindow({map: map});
+                    }
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('Me');
+                    map.setCenter(pos);
+                }, function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // else browser doesn't support geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+        }
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                    'Error: The Geolocation service failed.' :
+                    'Error: Your browser doesn\'t support geolocation.');
+        }
+
+        //handles when user inputs a location of any kind
+        function locationRequestZip() {
+            console.log('locationRequest');
+            var userInput = $('#search').val();
+            console.log(userInput);
+            if (userInput === '') {
+                console.log('locationRequest: empty zip code');
+                return;
+            }
+            $.ajax({
+                        url: 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDMYs0eOSofGXXJC817X5BZMHm4PIhezOY&address=' + userInput,
+                        dataType: 'json',
+                        method: 'get',
+                        success: function (response) {
+                            var findLocation = response.results[0].geometry.location;
+                            console.log('success ', findLocation);
+                            var pos = {
+                                lat: findLocation.lat,
+                                lng: findLocation.lng
+                            };
+
+                            infoWindow.setPosition(pos);
+                            infoWindow.setContent('Me');
+                            map.setCenter(pos);
+                        },
+                        error: function (response) {
+                            console.log('error ', response);
+                        }
+                    }
+            )
+        }
+        console.log(localStorage);
+</script>
 </body>
 </html>
