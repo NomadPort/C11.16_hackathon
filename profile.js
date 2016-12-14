@@ -46,7 +46,11 @@ function get_video(video_address){
                         .attr("value",playlist_data.items[i].snippet.resourceId.videoId))
                     .addClass("video_title");
                 new_object.thumbnail = $("<img>").attr("src", playlist_data.items[i].snippet.thumbnails.default.url).addClass("col-md-6 col-md-offset-3");
-                new_object.video_id = $("<iframe>").attr('width', 460).attr("height", 305).attr("src", "https://www.youtube.com/embed/" + playlist_data.items[i].snippet.resourceId.videoId).attr("frameborder", 0).addClass("col-md-12");
+                new_object.video_id = $("<iframe>")
+                    .attr('width', 460).attr("height", 305)
+                    .attr("src", "https://www.youtube.com/embed/" + playlist_data.items[i].snippet.resourceId.videoId)
+                    .attr("frameborder", 0)
+                    .addClass("col-md-12");
                 videos_array.push(new_object);
                 $(".video_display").append(videos_array[i].title, videos_array[i].video_id)
             }
