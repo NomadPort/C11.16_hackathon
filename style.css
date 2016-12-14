@@ -16,17 +16,24 @@
     width: 100vw;
     background-color: black;
 }
+#display_header ul {
+    font-family: 'Josefin Sans', sans-serif;
+}
 .name{
     font-size: 3.5em;
+    text-align: center;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 ol{
     list-style: none;
+    font-family:'Open Sans Condensed', sans-serif;;
 }
 .video_display {
     margin: 20px auto;
 }
 #info{
     text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
 }
 .display_pic{
     height: 40vh;
@@ -38,10 +45,13 @@ ol{
 .video_title{
     font-size:15px;
     color:red;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 .video_title label {
     padding-right: 20px
 }
 .modal-title{
     text-align: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size:60px;
 }

@@ -76,6 +76,7 @@ function upload_video() {
 }
 //creates form objects to insert dynamically onto display page
 function create_form_objects(){
+    location.href = "display.html";
     var profile_object = {};
     profile_object.name = $("#name_input").val();
     profile_object.location = $("#location_input").val();
@@ -100,5 +101,4 @@ function create_form_objects(){
     profiles.push(profile_object);
     var newProfilesString = JSON.stringify(profiles);
     localStorage.setItem("profiles", newProfilesString);
-    location.href = "display.html";
 }

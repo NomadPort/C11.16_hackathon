@@ -1,49 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Profile Page</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="profile.js"></script>
     <link rel="stylesheet" href="style.css">
+    <script src="profile.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans+Condensed:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
     <meta name="viewport" content="initial-scale=1.0">
 </head>
 <body class="container-fluid">
-<ul class="row">
-    <a href="display.html"><li class="nav nav-tabs col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 btn btn-defualt btn-lg active head_button" id="home">Home</li></a>
-    <a href="map.html"><li class="nav nav-tabs col-md-2 col-md-offset-2 col-xs-2 col-xs-offset-1 btn btn-defualt btn-lg head_button" id="messages">Map</li></a>
-    <a href="profile.html"><li class="nav nav-tabs col-md-2 col-md-offset-2 col-xs-2 col-xs-offset-1 btn btn-defualt btn-lg head_button" id="profile">Profile</li></a>
-</ul>
-
-
-<div class="row">
-    <h1 class=" logo_header .col-md-6 .col-md-offset-3">Duet</h1>
-</div>
-<div class="row avatar_img">
-    <img src="https://www.wpsymposiumpro.com/wp-content/uploads/2014/04/iStock_000033523696Small.jpg">
-</div>
-<form>
-    
-    <div class="form-group">
+<div class="form_body col-md-6 col-md-offset-3 well">
+  <header class="logo_header">Duet</header>
+   <div class="row avatar_img col-md-6 col-md-offset-3">
+     <img src="https://www.wpsymposiumpro.com/wp-content/uploads/2014/04/iStock_000033523696Small.jpg">
+   </div>
+    <div class="form-group row">
+        <div class="col-md-12">
             <label>Name</label>
             <input class="form-control" type="text" id="name_input" placeholder="Jenkins, Leroy">
+        </div>
     </div>
-    <div class="form-group ">
-            <label>Location</label>
+    <div class="form-group row">
+       <div class="col-md-12">
+             <label>Location</label>
             <input class="form-control" type="text" id="location_input" placeholder="Anaheim, CA    ">
+       </div>
     </div>
-    <div class="form-group ">
+    <div class="form-group row">
+        <div class="col-md-2">
             <label>Age</label>
             <input class="form-control" type="number" id="age_input" placeholder="Age">
-
+        </div>
     </div>
-    <div class="form-group ">
+    <div class="form-group row">
+        <div class="col-md-12">
             <label>About Me</label>
             <textarea class="form-control" type="text" id="description_input" placeholder="I hope one day I love something the way women in commercials love yogurt."></textarea>
+         </div>
     </div>
-    <div class="form-group ">
+    <div class="form-group row">
+        <div class="col-md-12">
             <label>I'm interested in finding other..i.e bands, vocalists, guitarists</label>
             <select class="form-control" type="text" id="interest_input" placeholder="I'm interested in finding other..">
                 <option>Bands</option>
@@ -63,32 +61,39 @@
                 <option>Saxophonist</option>
                 <option>Trumpeter</option>
             </select>
+        </div>
     </div>
-    <div class="form-group ">
+    <div class="form-group row">
+        <div class="col-md-12">
             <label>My skills</label>
-            <div class="checkbox skill_checkbox" type="text" id="skill_set_input" placeholder="i.e Guitar, Bass, Vocals">
-                <label><input type="checkbox" value="Vocals">Vocals</label>
-                <label><input type="checkbox" value="Guitar">Guitar</label>
-                <label><input type="checkbox" value="Bass">Bass</label>
-                <label><input type="checkbox" value="Drums">Drums</label>
-                <label><input type="checkbox" value="DJ">DJ</label>
-                <label><input type="checkbox" value="Keyboard">Keyboard/Piano</label>
-                <label><input type="checkbox" value="Composing">Composing</label>
-                <label><input type="checkbox" value="Violin">Violin/Viola</label>
-                <label><input type="checkbox" value="Cello">Cello</label>
-                <label><input type="checkbox" value="Clarinet">Clarinet</label>
-                <label><input type="checkbox" value="Flute">Flute</label>
-                <label><input type="checkbox" value="Harp">Harp</label>
-                <label><input type="checkbox" value="Bassoon">Bassoon</label>
-                <label><input type="checkbox" value="Saxophone">Saxophone</label>
+            <div class="checkbox" type="text" id="skill_set_input" placeholder="i.e Guitar, Bass, Vocals">
+                <label><input type="checkbox">Vocals</label>
+                <label><input type="checkbox">Guitar</label>
+                <label><input type="checkbox">Bass</label>
+                <label><input type="checkbox">Drums</label>
+                <label><input type="checkbox">DJ</label>
+                <label><input type="checkbox">Keyboard/Piano</label>
+                <label><input type="checkbox">Composing</label>
+                <label><input type="checkbox">Violin/Viola</label>
+                <label><input type="checkbox">Cello</label>
+                <label><input type="checkbox">Clarinet</label>
+                <label><input type="checkbox">Flute</label>
+                <label><input type="checkbox">Harp</label>
+                <label><input type="checkbox">Bassoon</label>
+                <label><input type="checkbox">Saxophone</label>
             </div>
+        </div>
     </div>
-    <div class="form-group ">
+    <div class="form-group row">
+        <div class="col-md-12">
             <label>Gear</label>
             <input class="form-control" type="text" id="equipment_input" placeholder="Hornucopian Dronepipe, Octobass..">
+        </div>
     </div>
-    <div class="form-group ">
+    <div class="form-group row">
+        <div class="col-md-12">
             <label>Choose a video from Youtube</label>
+            <input class="form-control" type="search" id="youtube_video" placeholder="Search clip by title..">
             <button type="submit" class="btn btn-primary btn-lg col-md-12" data-toggle="modal" data-target="#myModal">Select Youtube Clip</button>
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -97,7 +102,7 @@
                             <button type = "button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <h4 class = "modal-title">Choose a Youtube Clip</h4>
+                            <h4 class = modal-title">Choose a Youtube Clip</h4>
                         </div>
                         <div class="modal-body">
                             <form class="form-inline">
@@ -117,24 +122,24 @@
                     </div>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="form-group ">
+    <div class="form-group row">
         <div class="col-md-12 youtube_clip_area">
             <label>Youtube Clips: </label>
         </div>
     </div>
-    <div class="form-group ">
+    <div class="form-group row">
+        <div class="col-md-12">
             <label>Soundcloud Clip</label>
             <input class="form-control" type="search" id="sound_cloud_clip" placeholder="Search clip by artist name">
+        </div>
     </div>
-    <div class="form-group ">
-        <div class="col=md-12">
+    <div class="form-group row">
+        <div class="col-md-6 col-md-offset-3 col-xs-4 col-xs-offset-4">
             <button type="submit" class="btn btn-success col-md-3 col-md-offset-3" onclick="create_form_objects()">Create Profile!</button>
         </div>
     </div>
-</form>
 </div>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMYs0eOSofGXXJC817X5BZMHm4PIhezOY_k&libraries=places" async
-        defer></script>
 </body>
 </html>
