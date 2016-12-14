@@ -18,7 +18,7 @@
         </ul>
     </header>
     <div id="display">
-        <div id="carousel" class="carousel slide" data-ride="carousel">
+        <div id="carousel" class="carousel slide">
             <ol class="carousel-indicators">
                 <li data-target="#carousel" data-slide-to="0" class="active"></li>
                 <li data-target="#carousel" data-slide-to="1"></li>
@@ -26,13 +26,13 @@
                 <li data-target="#carousel" data-slide-to="3"></li>
             </ol>
             <div id="pic_display" class="carousel-inner" role="listbox" >
-                <div class="item carousel('pause')" data-toggle="modal" data-target="#jason">
+                <div class="item" data-toggle="modal" data-target="#jason">
                     <div class="name_display">
                         <h1 class="name">JSON</h1>
                     </div>
                     <img class="col-lg-6 col-lg-offset-3 col-sm-6 col-sm-offset-3 display_pic" src="https://www.wpsymposiumpro.com/wp-content/uploads/2014/04/iStock_000033523696Small.jpg">
                 </div>
-                <div class="item carousel('pause')" data-toggle="modal" data-target="#seany-d">
+                <div class="item" data-toggle="modal" data-target="#seany-d">
                     <div class="name_display">
                         <h1 class="name">Seany-D</h1>
                     </div>
@@ -155,8 +155,9 @@
             </div>
         </div>
     </div>
-        <div>
-           <button type="button" id="remove" class="col-md-offset-6 btn btn-danger btn-lg" onclick="remove_profile()">X</button>
-        </div>
+    <div>
+        <button type="button" id="remove" class="col-md-offset-6 btn btn-danger btn-lg visible-lg" onclick="remove_profile()">X</button>
+        <button type="button" id="small_remove" class="col-xs-offset-6 btn btn-danger btn-lg hidden-lg" onclick="remove_profile()">X</button>
+    </div>
 </body>
 </html>

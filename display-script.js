@@ -39,5 +39,8 @@ function remove_profile(){
     $('.active').hide();
 }
 function slider(){
-    $('.item').carousel('pause');
+    $('.carousel').carousel({
+        interval: 6000,
+        interval: false
+    })
 }
