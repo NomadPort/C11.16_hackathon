@@ -44,7 +44,7 @@
                     </div>
                     <img class="col-lg-6 col-lg-offset-3 col-xs-6 col-xs-offset-3 display_pic" src="https://www.wpsymposiumpro.com/wp-content/uploads/2014/04/iStock_000033523696Small.jpg">
                 </div>
-                <div class="item active" data-toggle="modal" data-target="#ryan">
+                <div class="item" data-toggle="modal" data-target="#ryan">
                     <div class="name_display">
                         <h1 class="name">Ryan Moy</h1>
                     </div>
@@ -52,16 +52,23 @@
                     <img class="col-lg-6 col-lg-offset-3 col-xs-6 col-xs-offset-3 display_pic" src="https://www.wpsymposiumpro.com/wp-content/uploads/2014/04/iStock_000033523696Small.jpg">
                 </div>
 
-            <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+                <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <div id="sound_clips">
+            </div>
         </div>
-        <div id="sound_clips">
+
+
+        <div>
+            <button type="button" id="remove" class="col-md-offset-6 btn btn-danger btn-lg visible-lg" onclick="remove_profile()">X</button>
+            <button type="button" id="small_remove" class="col-xs-offset-6 btn btn-danger btn-lg hidden-lg" onclick="remove_profile()">X</button>
         </div>
     </div>
     <div class="modal" id="jason" tabindex="1" role="dialog" aria-labelledby="myModalLabel">
@@ -140,37 +147,61 @@
             </div>
         </div>
     </div>
-        <div class="modal" id="ryan" tabindex="1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="ryans_modal">Ryan Moy</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="info">
+    <div class="modal" id="ryan" tabindex="1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="ryans_modal">Ryan Moy</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="info">
 
-                            <h4>Name - </h4><p>That New Guy</p>
-                            <h4>Location - </h4><p>Huntington, CA</p>
-                            <h4>Age -</h4><p>26</p>
-
-                            <h4>About Me</h4>
-                            <p>You Know!</p>
-                            <h4>Looking For </h4><p>Macho Man Randy Savage</p>
-                            <h4>My Skills</h4><p>im pretty great i promise.</p>
-
-                            <h4>Gear </h4><p>I thiink i have some helical gears lying around somewhere.</p>
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Dd7FixvoKBw" frameborder="0" allowfullscreen></iframe>
-
-                        </div>
+                        <h4>Name - </h4><p>That New Guy</p>
+                        <h4>Location - </h4><p>Huntington, CA</p>
+                        <h4>Age -</h4><p>26</p>
+                        <h4>About Me</h4>
+                        <p>You Know!</p>
+                        <h4>Looking For </h4><p>Macho Man Randy Savage</p>
+                        <h4>My Skills</h4><p>im pretty great i promise.</p>
+                        <h4>Gear </h4><p>I thiink i have some helical gears lying around somewhere.</p>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Dd7FixvoKBw" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div>
-        <button type="button" id="remove" class="col-md-offset-6 btn btn-danger btn-lg visible-lg" onclick="remove_profile()">X</button>
-        <button type="button" id="small_remove" class="col-xs-offset-6 btn btn-danger btn-lg hidden-lg" onclick="remove_profile()">X</button>
+    <!-- place holders for clone and append -->
+    <div class="modal" id="modal-placeholder" tabindex="1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Ryan Moy</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="info">
+
+                        <h4>Name </h4><p class="name_input"></p>
+                        <h4>Location </h4><p class="location_input"></p>
+                        <h4>Age </h4><p class="age_input"></p>
+                        <h4>About Me</h4>
+                        <p class="description_input"></p>
+                        <h4>Looking For </h4><p class="interest_input"></p>
+                        <h4>My Skills</h4><p class="skills_input"></p>
+
+                        <h4>Gear </h4><p class="equipment_input"></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="item-placeholder" class="item" data-toggle="modal" data-target="#modal-placeholder">
+        <div class="name_display">
+            <h1 class="name"></h1>
+        </div>
+        <img class="col-lg-6 col-lg-offset-3 col-xs-6 col-xs-offset-3 display_pic" src="https://www.wpsymposiumpro.com/wp-content/uploads/2014/04/iStock_000033523696Small.jpg">
     </div>
 </body>
 </html>

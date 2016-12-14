@@ -5,10 +5,15 @@
     margin: 0 auto;
     border: 1px solid darkblue;
 }
+body{
+    background-image: url("http://wallpapercave.com/wp/OF7FY9K.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .logo_header{
     font-size:50px;
     font-family: 'Poiret One', cursive;
-    color:darkblue;
+    color:maroon;
     margin: 0 auto;
 }
 #display_header{
@@ -21,12 +26,13 @@
     font-family: 'Josefin Sans', sans-serif;
 }
 .nav-tabs{
-    color:darkblue;
+    color:maroon;
 }
 .name{
     font-size: 3.5em;
     text-align: center;
     font-family: 'Open Sans Condensed', sans-serif;
+    color:white;
 }
 ol{
     list-style: none;
@@ -79,4 +85,9 @@ ol{
     #display_header ul li{
         margin-left:26px;
     }
+}
+
+#item-placeholder,
+#modal-placeholder {
+    display:none;
 }

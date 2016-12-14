@@ -32,6 +32,7 @@ function get_video(video_address){
         },
         dataType:"json"
     })
+        //appending videos from youtube onto modal
         .then(function(msg){
             playlist_data = msg;
             var song_array = playlist_data.items;
@@ -101,6 +102,7 @@ function create_form_objects(){
     if (profilesString === null) {
         profilesString = "[]";
     }
+    //turns objects into strings to store in localstorage
     var profiles = JSON.parse(profilesString);
     profiles.push(profile_object);
     var newProfilesString = JSON.stringify(profiles);
