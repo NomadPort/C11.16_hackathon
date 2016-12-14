@@ -10,21 +10,19 @@ $(document).ready(function() {
     // }
     create_modal(profiles[0]);
     create_carousel(profiles[0]);
-
+    slider();
 
 });
 
 
     function create_carousel(current){
         var newCaro = $('.item.jason').clone(true).removeClass().addClass("item " + current.name);
-        newCaro.removeAttr("data-target")
-        newCaro.attr("data-target", "#"+current.name)
+        newCaro.removeAttr("data-target");
+        newCaro.attr("data-target", "#"+current.name);
         console.log(newCaro.data().target);
         $('.item').after(newCaro);
         var duplicate = $("." +current.name+ " .name");
         duplicate[0].innerHTML = current.name;
-    }
-
     }
 
 function expand(){
@@ -42,10 +40,5 @@ function slider(){
     $('.carousel').carousel({
         interval: 6000,
         interval: false
-    })
-}
-function pause(){
-    $('.modal').on('hidden.bs.modal', function(){
-        $('.video')
     })
 }
