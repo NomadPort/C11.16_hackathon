@@ -1,24 +1,32 @@
+
 $(document).ready(function() {
 
     var profilesString = localStorage.getItem("profiles");
     var profiles = JSON.parse(profilesString);
 
-    for(var i = 0; i < profiles.length; i++) {
-        create_modal(profiles[i])
-    }
-    function create_modal(profile) {
-        var newModal = $('#modal-placeholder').clone();
-        newModal.attr("id", profile.name);
-        newModal.children(".modal-title").html(profile.name);
-        newModal.children(".name_input").html(profile.name);
-        newModal.children(".age_input").html(profile.age);
-        newModal.children(".location_input").html(profile.location);
-        newModal.children(".description_input").html(profile.description);
-        $("body").append(newModal);
-        slider();
-        pause();
-    }
+
+    // for(var i = 0; i < profiles.length; i++) {
+    //     create_modal(profiles[i])
+    // }
+    create_modal(profiles[0]);
+    create_carousel(profiles[0]);
+
+
 });
+
+
+    function create_carousel(current){
+        var newCaro = $('.item.jason').clone(true).removeClass().addClass("item " + current.name);
+        newCaro.removeAttr("data-target")
+        newCaro.attr("data-target", "#"+current.name)
+        console.log(newCaro.data().target);
+        $('.item').after(newCaro);
+        var duplicate = $("." +current.name+ " .name");
+        duplicate[0].innerHTML = current.name;
+    }
+
+    }
+
 function expand(){
     if($('#info').is(':hidden')) {
         $('#info').show()

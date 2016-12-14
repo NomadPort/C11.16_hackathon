@@ -6,6 +6,7 @@
     <meta name="viewport" content="initial-scale=1.0">
     <script rel="script" type="text/javascript" src="profile.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans+Condensed:300" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
@@ -39,14 +40,31 @@
         ul {
             margin-top: 0;
             margin-left: 5%;
+            font-family: 'Josefin Sans', sans-serif;;
         }
 
-        #display_header {
-            height: 10%;
-            width: 100%;
-
-            margin-bottom: 1%;
-            background-color: black;
+        #display_header{
+            height: 10vh;
+            width: 100vw;
+            background-color: darkgrey;
+            opacity: .5;
+        }
+        #display_header ul {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        .nav-tabs{
+            color:darkblue;
+        }
+        @media (max-width: 480px) {
+            #display_header{
+                width:100%;
+            }
+            #display_header ul li{
+                margin-left:26px;
+            }
+        }
+        #map{
+            margin: 0 auto;
         }
     </style>
 
