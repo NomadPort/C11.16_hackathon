@@ -60,7 +60,7 @@ function clear_youtube_form(){
 function upload_video() {
     var checkboxes = $(".video_title input");
     for (var i = 0; i < checkboxes.length; i++){
-        console.log(checkboxes[i])
+        console.log(checkboxes[i]);
         if($(checkboxes[i]).is(':checked')){
             $(".youtube_clip_area").append(
                 $("<iframe>")
@@ -90,7 +90,7 @@ function create_form_objects(){
     profile_object.youtube = [];
     $(".youtube_clip_area iframe").each(function(){
         profile_object.youtube.push($(this).data("video_id"))
-    })
+    });
     // localStorage.setItem("profiles", "[]");
     var profilesString = localStorage.getItem("profiles");
     if (profilesString === null) {
