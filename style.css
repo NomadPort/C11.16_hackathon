@@ -86,3 +86,8 @@ ol{
         margin-left:26px;
     }
 }
+
+#item-placeholder,
+#modal-placeholder {
+    display:none;
+}
