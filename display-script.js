@@ -24,22 +24,7 @@ $(document).ready(function() {
         var duplicate = $("." +current.name+ " .name");
         duplicate[0].innerHTML = current.name;
     }
-    function create_modal(current) {
-        var name = current.name
-        var newModal = $('#jason.modal').clone(true).addClass(name).removeAttr("id").attr("id", current.name);
-        $('#jason.modal').after(newModal);
-        $("." +name +" .modal-title")[0].innerHTML = current.name;
-        $("." +name +" #name")[0].innerHTML = current.name;
-        $("." +name +" #location")[0].innerHTML = current.location;
-        $("." +name +" #age")[0].innerHTML = current.age;
-        $("." +name +" #about")[0].innerHTML = current.about;
-        $("." +name +" #skills")[0].innerHTML = current.skills;
-        $("." +name +" #gear")[0].innerHTML = current.gear;
-        $("." +name +" #looking")[0].innerHTML = current.interest;
-        $("." +name +" iframe").removeAttr("src");
-        $("." +name +" iframe").attr("src", current.youtube[0])
-        console.log($("." +name +" iframe")[0].src)
-        
+
     }
 
 function expand(){
@@ -57,5 +42,10 @@ function slider(){
     $('.carousel').carousel({
         interval: 6000,
         interval: false
+    })
+}
+function pause(){
+    $('.modal').on('hidden.bs.modal', function(){
+        $('.video')
     })
 }
