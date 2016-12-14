@@ -25,10 +25,11 @@
 
         }
 
-        .container {
-            margin-right: 0;
+        body{
+            background-image: url("http://wallpapercave.com/wp/OF7FY9K.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
         }
-
         /* Optional: Makes the sample page fill the window. */
         html, body {
             height: 100vh;
@@ -53,7 +54,7 @@
             font-family: 'Josefin Sans', sans-serif;
         }
         .nav-tabs{
-            color:darkblue;
+            color:maroon;
         }
         @media (max-width: 480px) {
             #display_header{
@@ -70,7 +71,6 @@
 
 </head>
 <body>
-
 <header id="display_header">
     <ul>
         <a href="display.html"><li class="nav nav-tabs col-md-2 col-md-offset-2 btn btn-defualt btn-lg active head_button" id="home">Home</li></a>
@@ -78,6 +78,7 @@
         <a href="profile.html"><li class="nav nav-tabs col-md-2 col-md-offset-1 btn btn-defualt btn-lg head_button" id="profile">Profile</li></a>
     </ul>
 </header>
+//search bar
 <div class="container">
     <div class="user-add-form  col-md-12 col-md-push-2">
         <div class="form-group input-group col-md-7 ">
@@ -93,9 +94,10 @@
     </div>
 </div>
 <div id="map" class="col-md-12 col-md-push-1 col-xs-12 col-xs-push-1"></div>
+//Map display
 <script>
     var map;
-
+//harcoded profile longitude and latitude
 function grab_profile_data() {
 
     return [
@@ -109,14 +111,14 @@ function grab_profile_data() {
 
     var locations = grab_profile_data();
 //    var locations = create_form_objects();
-
+//gives start location of a certain area upon load
     function initMap() {
             console.log("init map");
         map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 33.7456, lng: -117.8678},
             zoom: 10
         });
-
+//sets markers on location for hardcoded data
         var markers = locations.map(function(location, i) {
             console.log("HI");
             return new google.maps.Marker({
@@ -127,7 +129,7 @@ function grab_profile_data() {
 
             });
         });
-
+//sets user's current location
         var infoWindow = new google.maps.InfoWindow({map: map});
 
         // if browser does support geolocation
@@ -148,7 +150,6 @@ function grab_profile_data() {
             // else browser doesn't support geolocation
             handleLocationError(false, infoWindow, map.getCenter());
         }
-    }
 
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
@@ -156,7 +157,7 @@ function grab_profile_data() {
                 'Error: The Geolocation service failed.' :
                 'Error: Your browser doesn\'t support geolocation.');
     }
-
+//handles when user inputs a location of any kind
     function locationRequestZip() {
         console.log('locationRequest');
         var userInput = $('#search').val();
@@ -165,7 +166,6 @@ function grab_profile_data() {
             console.log('locationRequest: empty zip code');
             return;
         }
-
         $.ajax({
                     url: 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDMYs0eOSofGXXJC817X5BZMHm4PIhezOY&address=' + userInput,
                     dataType: 'json',

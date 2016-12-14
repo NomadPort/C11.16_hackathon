@@ -26,7 +26,7 @@ $(document).ready(function() {
     //     $(".carousel-inner").append(newDisplayItem);
     // }
 });
-
+//shows more profile info upon click
 function expand(){
     if($('#info').is(':hidden')) {
         $('#info').show()
@@ -35,6 +35,7 @@ function expand(){
     }
     console.log('ive been clicked!')
 }
+//hides profiles upon click
 function remove_profile(){
     $('.active').hide();
 }
