@@ -16,6 +16,7 @@ $(document).ready(function() {
         newModal.children(".description_input").html(profile.description);
         $("body").append(newModal);
         slider();
+        pause();
     }
 });
 function expand(){
@@ -33,5 +34,10 @@ function slider(){
     $('.carousel').carousel({
         interval: 6000,
         interval: false
+    })
+}
+function pause(){
+    $('.modal').on('hidden.bs.modal', function(){
+        $('.video')
     })
 }
